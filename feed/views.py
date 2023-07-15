@@ -10,6 +10,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from .forms import FeedForm
 # Create your views here.
 
 from .forms import PositionForm
@@ -43,4 +44,21 @@ class RegisterPage(FormView):
 
 
 def home(request):
-    return render(request,'feed/feed.html')
+    feeds = Feed.objects.all()
+    context =  {'feeds': feeds}
+    return render(request, 'feed/feed.html',context)
+
+
+
+def create_feed(request):
+    if request.method == 'POST':
+        form = FeedForm(request.POST, request.FILES)
+        if form.is_valid():
+            feed = form.save(commit=False)
+            feed.user = request.user
+            feed.save()
+            return redirect('feed')  # Assuming you have a URL named 'feed_list' for displaying all feed posts
+    else:
+        form = FeedForm()
+    return render(request, 'feed/feed_form.html', {'form': form})
+

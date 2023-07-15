@@ -6,5 +6,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
     path('register/', RegisterPage.as_view(), name='register'),
 
-    path('',home,name='feed')
+    path('',home,name='feed'),
+    path('create-feed/',create_feed,name='create-feed')
 ]

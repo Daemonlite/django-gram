@@ -1,3 +1,64 @@
 .feed{
     margin-top: 100px;
 }
+/* Add appropriate styles to match Facebook */
+
+.feed-item {
+    padding: 10px;
+    margin-bottom: 20px;
+   
+  }
+  
+  .user {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .caption {
+    margin-bottom: 10px;
+    width: 500px;
+  }
+  
+  .feed-image {
+    max-width: 50%;
+    height: 400px;
+    margin-bottom: 10px;
+  }
+  
+  .created-on,
+  .updated-on {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .actions {
+    margin-top: 10px;
+  }
+  
+  .like,
+  .comment {
+    display: inline-block;
+    margin-right: 10px;
+    color: #555;
+    text-decoration: none;
+  }
+  
+  /* Style the like and comment links to look like buttons */
+  .like {
+    background-color: #e4e6eb;
+    border-radius: 4px;
+    padding: 5px 10px;
+  }
+  
+  .comment {
+    background-color: #f5f6f8;
+    border-radius: 4px;
+    padding: 5px 10px;
+  }
+  
+  /* Hover effect on the like and comment links */
+  .like:hover,
+  .comment:hover {
+    background-color: #ddd;
+  }
+  

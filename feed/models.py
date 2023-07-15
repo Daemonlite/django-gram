@@ -10,8 +10,7 @@ class Feed(models.Model):
     created_on = models.DateTimeField(auto_now_add=True,null=True)
     updated_on = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return str(self.user)
+
 
 
 class Comments(models.Model):
