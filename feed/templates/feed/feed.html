@@ -7,12 +7,11 @@
 {% for feed in feeds %}
     <div class="feed-item">
         <p class="user">posted by: {{ feed.user }}</p>
-        <p class="caption">Caption: {{ feed.caption }}</p>
+        <p class="caption"> {{ feed.caption }}</p>
         {% if feed.image %}
             <img class="feed-image" src="{{ feed.image.url }}" alt="Feed Image">
         {% endif %}
         <p class="created-on">Created On: {{ feed.created_on }}</p>
-        <p class="updated-on">Updated On: {{ feed.updated_on }}</p>
         <div class="actions">
             <a href="#" class="like">Like</a>
             <a href="#" class="comment">Comment</a>
