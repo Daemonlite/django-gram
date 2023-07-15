@@ -21,7 +21,7 @@ class Comments(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.created_on
+        return str(self.created_on)
     
 
 
@@ -31,5 +31,5 @@ class Like(models.Model):
     liked_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Like by {self.user.username} on {self.liked_at}"
+        return f"Like by {self.liked_by} on {self.liked_at}"
 
