@@ -45,8 +45,8 @@ class RegisterPage(FormView):
 
 def home(request):
     feeds = Feed.objects.all()
-    likes = Like.objects.filter(feed__in=feeds).count()
-    context =  {'feeds': feeds,'likes':likes}
+    # likes = Like.objects.filter(feed__in=feeds).count()
+    context =  {'feeds': feeds,}
     return render(request, 'feed/feed.html',context)
 
 def get_feed_by_id(request,feed_id):
@@ -76,4 +76,7 @@ def delete_feed(request, feed_id):
         return  HttpResponseRedirect('/')
     except feed.DoesNotExist:
         return HttpResponse("feed does not exist.")
+    
+
+
 

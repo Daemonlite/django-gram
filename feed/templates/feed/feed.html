@@ -4,6 +4,7 @@
 
 <h1 class="feed">Feed</h1>
 
+
 {% for feed in feeds %}
     <div class="feed-item container">
         <p class="user">posted by: {{ feed.user }}</p>
@@ -13,8 +14,7 @@
         {% endif %}
         <p class="created-on">Created On: {{ feed.created_on }}</p>
         <div class="actions">
-            <a href="#" class="like">Like({{ likes }})</a>
-            <a href="{% url 'feed-id' feed.id %}" class="like">Comment</a>
+            <a href="{% url 'feed-id' feed.id %}" class="like" id="likeButton">Comment</a>
             
             {% if request.user.is_authenticated and request.user.id == feed.user.id %}
                 <a href="{% url 'delete-feed' feed.id %}" class="like">Delete</a>

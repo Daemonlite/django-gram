@@ -24,11 +24,11 @@ class Comments(models.Model):
     
 
 
-class Like(models.Model):
-    feed = models.ForeignKey(Feed, on_delete=models.CASCADE)
-    liked_by = models.CharField(max_length=200)
-    liked_at = models.DateTimeField(auto_now_add=True)
+# class Like(models.Model):
+#     feed = models.ForeignKey(Feed, on_delete=models.CASCADE)
+#     liked_by = models.CharField(max_length=200)
+#     liked_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"Like by {self.liked_by} on {self.liked_at}"
+#     def __str__(self):
+#         return f"Like by {self.liked_by} on {self.liked_at}"
 
