@@ -4,7 +4,7 @@
 
 <h1 class="feed">Feed</h1>
 
-{% for feed in feeds %}
+
     <div class="feed-item container">
         <p class="user">posted by: {{ feed.user }}</p>
         <p class="caption">{{ feed.caption }}</p>
@@ -13,18 +13,24 @@
         {% endif %}
         <p class="created-on">Created On: {{ feed.created_on }}</p>
         <div class="actions">
-            <a href="#" class="like">Like({{ likes }})</a>
-            <a href="{% url 'feed-id' feed.id %}" class="like">Comment</a>
+            <a href="#" class="like">Like</a>
+            <a href="#" class="like">Comment</a>
             
             {% if request.user.is_authenticated and request.user.id == feed.user.id %}
                 <a href="{% url 'delete-feed' feed.id %}" class="like">Delete</a>
             {% endif %}
-            
+            <br>
+            <br>
+    <div class="forms">
+        <form action="" method="post" class="">
+            <textarea class="comment"></textarea>
+            <br>
+             <button type="submit" class="btn btn-sm btn-outline-success">add comment</button>
+         </form>
+    </div>
         </div>
     </div>
-{% empty %}
-    <p>No feeds available.</p>
-{% endfor %}
+
+
 
 {% endblock content %}
-

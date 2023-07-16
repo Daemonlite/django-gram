@@ -45,9 +45,14 @@ class RegisterPage(FormView):
 
 def home(request):
     feeds = Feed.objects.all()
-    context =  {'feeds': feeds}
+    likes = Like.objects.filter(feed__in=feeds).count()
+    context =  {'feeds': feeds,'likes':likes}
     return render(request, 'feed/feed.html',context)
 
+def get_feed_by_id(request,feed_id):
+    feed = Feed.objects.get(id=feed_id)
+    context =  {'feed': feed}
+    return render(request, 'feed/feed-id.html',context)
 
 
 def create_feed(request):
@@ -61,4 +66,14 @@ def create_feed(request):
     else:
         form = FeedForm()
     return render(request, 'feed/feed_form.html', {'form': form})
+
+
+
+def delete_feed(request, feed_id):
+    try:
+        feed = Feed.objects.get(id=feed_id)
+        feed.delete()
+        return  HttpResponseRedirect('/')
+    except feed.DoesNotExist:
+        return HttpResponse("feed does not exist.")
 
